@@ -4875,4 +4875,8 @@ img.thezoom{
 
 .page-content .info-block strong{
     white-space: nowrap;
+}
+.page-content h1{
+    border-bottom: #F5F5EA 6px solid;
+    padding: 0px 0px 3px;
 } 
