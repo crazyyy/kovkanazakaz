@@ -8,7 +8,7 @@
     width: 26px;
     height: 26px;
     background: rgba(0, 0, 0, 0.6);
-    background-image: url("img/download2.png");
+    background-image: url(img/download2.png);
     background-size: contain;
     border-radius: 50px;
     -webkit-transform: translateZ(0);
@@ -125,7 +125,7 @@
     margin: 5px;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 15px;
-    background-image: url("img/social.png");
+    background-image: url(img/social.png);
 }
 
 .the-zoom-social .the-zoom-sb > div {
@@ -219,7 +219,7 @@
     display: block;
     width: 58px;
     height: 60px;
-    background-image: url("img/loader.gif");
+    background-image: url(img/loader.gif);
 }
 
 .the-zoom-loader {
@@ -400,27 +400,27 @@
 }
 
 .the-zoom-overlay-image-vintage.overlay-white {
-    background-image: url("img/overlays/1w.png");
+    background-image: url(img/overlays/1w.png);
 }
 
 .the-zoom-overlay-image-vintage.overlay-black {
-    background-image: url("img/overlays/1b.png");
+    background-image: url(img/overlays/1b.png);
 }
 
 .the-zoom-overlay-image-dots.overlay-white {
-    background-image: url("img/overlays/4w.png");
+    background-image: url(img/overlays/4w.png);
 }
 
 .the-zoom-overlay-image-dots.overlay-black {
-    background-image: url("img/overlays/4b.png");
+    background-image: url(img/overlays/4b.png);
 }
 
 .the-zoom-overlay-image-hexagon.overlay-white {
-    background-image: url("img/overlays/5w.png");
+    background-image: url(img/overlays/5w.png);
 }
 
 .the-zoom-overlay-image-hexagon.overlay-black {
-    background-image: url("img/overlays/5b.png");
+    background-image: url(img/overlays/5b.png);
 }
 
 .the-zoom-overlay-image-world {
@@ -428,33 +428,33 @@
 }
 
 .the-zoom-overlay-image-world.overlay-white {
-    background-image: url("img/overlays/3w.png");
+    background-image: url(img/overlays/3w.png);
 }
 
 .the-zoom-overlay-image-world.overlay-black {
-    background-image: url("img/overlays/3b.png");
+    background-image: url(img/overlays/3b.png);
 }
 
 .the-zoom-overlay-image-waves.overlay-white {
-    background-image: url("img/overlays/2w.png");
+    background-image: url(img/overlays/2w.png);
 }
 
 .the-zoom-overlay-image-waves.overlay-black {
-    background-image: url("img/overlays/2b.png");
+    background-image: url(img/overlays/2b.png);
 }
 
 .the-zoom-overlay-image-dot1 {
-    background-image: url("img/overlays/dot1.png");
+    background-image: url(img/overlays/dot1.png);
     background-size: 4px;
 }
 
 .the-zoom-overlay-image-dot2 {
-    background-image: url("img/overlays/01.png");
+    background-image: url(img/overlays/01.png);
     background-size: 3px;
 }
 
 .the-zoom-overlay-image-dot3 {
-    background-image: url("img/overlays/09.png");
+    background-image: url(img/overlays/09.png);
     background-size: 3px;
 }
 
@@ -468,7 +468,7 @@
     width: 26px;
     height: 26px;
     background: rgba(0, 0, 0, 0.8);
-    background-image: url("img/close.png");
+    background-image: url(img/close.png);
     background-size: contain;
     border-radius: 15px;
     -webkit-transform: translateZ(0);
@@ -604,17 +604,17 @@
 
 .the-zoom-zoom_in {
     cursor: pointer;
-    cursor: url("img/zoomin24.png"), auto !important;
+    cursor: url(img/zoomin24.png), auto !important;
 }
 
 .the-zoom-zoom_out {
     cursor: pointer;
-    cursor: url("img/zoomout24.png"), auto !important;
+    cursor: url(img/zoomout24.png), auto !important;
 }
 
 .the-zoom-next {
     cursor: pointer;
-    cursor: url("img/next.png"), auto !important;
+    cursor: url(img/next.png), auto !important;
 }
 
 .the-zoom-show {
@@ -623,33 +623,4 @@
 
 .the-zoom-hide {
     display: none;
-}
-
-.image { 
-
-	
-
-	
-}
-	
-.image_small {
-	float:left;
-}
-
-
-.descr 
-{
-	padding-top:100px;
-
-	
-	
- 
-	
-	 width: 900px;
- 
-  
-	
-	 
-	float: right;
-	
 }
