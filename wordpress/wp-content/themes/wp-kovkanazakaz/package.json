@@ -20,8 +20,7 @@
     "gulp-util": "^3.0.2",
     "gulp-wait": "0.0.2",
     "gulp-webp": "^2.2.0",
-    "gulp.spritesmith": "^2.4.0",
-    "node-sass": "^2.1.1"
+    "gulp.spritesmith": "^2.4.0"
   },
   "dependencies": {}
 }
