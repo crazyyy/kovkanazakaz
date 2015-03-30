@@ -23,34 +23,15 @@
 		conditionizr()
 	}()
 	</script>
-</head>
+
+
+    <script type="text/javascript" async="" src="<?php echo get_template_directory_uri(); ?>/other/84233"></script>
+  	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.lazy.min.js"></script>
+</head> 
+
+
 <body <?php body_class(); ?>>
-
-	<!-- wrapper -->
-	<div class="wrapper">
-
-		<!-- header -->
-		<header class="header clearfix" role="banner">
-
-			<!-- logo -->
-			<div class="logo">
-				<?php if ( is_front_page() && is_home() ){ } else { ?>
-				<a href="<?php echo home_url(); ?>">
-				<?php  } ?>
-				<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
-				<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">	
-				<?php if ( is_front_page() && is_home() ){ 
-				} else { ?>
-				</a>
-				<?php } ?>
-			</div>
-			<!-- /logo -->
-
-			<!-- nav -->
-			<nav class="nav" role="navigation">
-				<?php wpeHeadNav(); ?>
-			</nav>
-			<!-- /nav -->
-
-		</header>
-		<!-- /header -->
