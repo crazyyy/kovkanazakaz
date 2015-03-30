@@ -1,0 +1,6 @@
+[03/30/2015 10:49 AM] - FAILURE : AIOWPSecurity_Utility_IP - Invalid IP received 
+[03/30/2015 10:49 AM] - FAILURE : Error inserting record into hpx3bi_aiowps_login_activity
+[03/30/2015 10:49 AM] - FAILURE : AIOWPSecurity_Utility_IP - Invalid IP received 
+[03/30/2015 10:50 AM] - FAILURE : AIOWPSecurity_Utility_IP - Invalid IP received 
+[03/30/2015 10:50 AM] - FAILURE : Error inserting record into hpx3bi_aiowps_login_activity
+[03/30/2015 10:51 AM] - FAILURE : AIOWPSecurity_Utility_IP - Invalid IP received 
