@@ -11,3 +11,4 @@ wp-content/cache/
 wp-content/upgrade/
 wp-content/uploads/
 wp-content/wp-cache-config.php
+/wordpress/wp-content/themes/wp-kovkanazakaz/node_modules
