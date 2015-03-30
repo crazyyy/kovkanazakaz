@@ -20,10 +20,15 @@ class AIOWPSecurity_List_Registered_Users extends AIOWPSecurity_List_Table {
 
     function column_ID($item){
         //$tab = strip_tags($_REQUEST['tab']);
+        $delete_url = sprintf('admin.php?page=%s&action=%s&user_id=%s', AIOWPSEC_USER_REGISTRATION_MENU_SLUG, 'delete_acct', $item['ID']);
+        //Add nonce to delete URL
+        $delete_url_nonce = wp_nonce_url($delete_url, "delete_user_acct", "aiowps_nonce");
+
         //Build row actions
         $actions = array(
+            'view' => sprintf('<a href="user-edit.php?user_id=%s" target="_blank">View</a>',$item['ID']),
             'approve_acct' => sprintf('<a href="admin.php?page=%s&action=%s&user_id=%s" onclick="return confirm(\'Are you sure you want to approve this account?\')">Approve</a>',AIOWPSEC_USER_REGISTRATION_MENU_SLUG,'approve_acct',$item['ID']),
-            'delete_acct' => sprintf('<a href="admin.php?page=%s&action=%s&user_id=%s" onclick="return confirm(\'Are you sure you want to delete this account?\')">Delete</a>',AIOWPSEC_USER_REGISTRATION_MENU_SLUG,'delete_acct',$item['ID']),
+            'delete_acct' => '<a href="'.$delete_url_nonce.'" onclick="return confirm(\'Are you sure you want to delete this account?\')">Delete</a>',
         );
         
         //Return the user_login contents
@@ -122,11 +127,13 @@ class AIOWPSecurity_List_Registered_Users extends AIOWPSecurity_List_Table {
                     if($user === false){
                         //don't send mail
                     }else{
-                        //TODO send email to account holder
+                        $email_msg = '';
                         $to_email_address = $user->user_email;
                         $subject = '['.get_option('siteurl').'] '. __('Your account is now active','aiowpsecurity');
-                        $email_msg .= __('Your account with username:','aiowpsecurity').$user->ID." is now active.\n";
-                        $email_header = 'From: '.get_bloginfo( 'name' ).' <'.get_bloginfo('admin_email').'>' . "\r\n\\";
+                        $email_msg .= __('Your account with username:','aiowpsecurity').$user->ID.__(' is now active','aiowpsecurity')."\n";
+                        $site_title = get_bloginfo( 'name' );
+                        $from_name = empty($site_title)?'WordPress':$site_title;
+                        $email_header = 'From: '.$from_name.' <'.get_bloginfo('admin_email').'>' . "\r\n\\";
                         $sendMail = wp_mail($to_email_address, $subject, $email_msg, $email_header);
                     }
                 }
@@ -145,12 +152,14 @@ class AIOWPSecurity_List_Registered_Users extends AIOWPSecurity_List_Table {
             if($result)
             {
                 AIOWPSecurity_Admin_Menu::show_msg_updated_st(__('The selected account was approved successfully!','aiowpsecurity'));
-                //TODO send email to account holder
                 $user = get_user_by('id', $entries);
                 $to_email_address = $user->user_email;
+                $email_msg = '';
                 $subject = '['.get_option('siteurl').'] '. __('Your account is now active','aiowpsecurity');
-                $email_msg .= __('Your account with username: ','aiowpsecurity').$user->user_login." is now active.\n";
-                $email_header = 'From: '.get_bloginfo( 'name' ).' <'.get_bloginfo('admin_email').'>' . "\r\n\\";
+                $email_msg .= __('Your account with username: ','aiowpsecurity').$user->user_login.__(' is now active','aiowpsecurity')."\n";
+                $site_title = get_bloginfo( 'name' );
+                $from_name = empty($site_title)?'WordPress':$site_title;
+                $email_header = 'From: '.$from_name.' <'.get_bloginfo('admin_email').'>' . "\r\n\\";
                 $sendMail = wp_mail($to_email_address, $subject, $email_msg, $email_header);
                 
             }else if($result === false){
@@ -164,18 +173,28 @@ class AIOWPSecurity_List_Registered_Users extends AIOWPSecurity_List_Table {
         global $wpdb, $aio_wp_security;
         if (is_array($entries))
         {
-            //Let's go through each entry and delete account
-            foreach($entries as $user_id)
+            if (isset($_REQUEST['_wp_http_referer']))
             {
-                $result = wp_delete_user($user_id);
-                if($result !== true)
+                //Let's go through each entry and delete account
+                foreach($entries as $user_id)
                 {
-                    $aio_wp_security->debug_logger->log_debug("AIOWPSecurity_List_Registered_Users::delete_selected_accounts() - could not delete account ID: $user_id",4);
+                    $result = wp_delete_user($user_id);
+                    if($result !== true)
+                    {
+                        $aio_wp_security->debug_logger->log_debug("AIOWPSecurity_List_Registered_Users::delete_selected_accounts() - could not delete account ID: $user_id",4);
+                    }
                 }
+                AIOWPSecurity_Admin_Menu::show_msg_updated_st(__('The selected accounts were deleted successfully!','aiowpsecurity'));
             }
-            AIOWPSecurity_Admin_Menu::show_msg_updated_st(__('The selected accounts were deleted successfully!','aiowpsecurity'));
         } elseif ($entries != NULL)
         {
+            $nonce=isset($_GET['aiowps_nonce'])?$_GET['aiowps_nonce']:'';
+            if (!isset($nonce) ||!wp_verify_nonce($nonce, 'delete_user_acct'))
+            {
+                $aio_wp_security->debug_logger->log_debug("Nonce check failed for delete registered user account operation!",4);
+                die(__('Nonce check failed for delete registered user account operation!','aiowpsecurity'));
+            }
+            
             //Delete single account
 
             $result = wp_delete_user($entries);
@@ -201,13 +220,6 @@ class AIOWPSecurity_List_Registered_Users extends AIOWPSecurity_List_Table {
         
         $this->process_bulk_action();
     	
-    	global $wpdb;
-        global $aio_wp_security;
-        /* -- Ordering parameters -- */
-	//Parameters that are going to be used to order the result
-//	$orderby = !empty($_GET["orderby"]) ? mysql_real_escape_string($_GET["orderby"]) : 'user_id';
-//	$order = !empty($_GET["order"]) ? mysql_real_escape_string($_GET["order"]) : 'DESC';
-
         //Get registered users which have the special 'aiowps_account_status' meta key set to 'pending'
         $data = $this->get_registered_user_data('pending');
         
