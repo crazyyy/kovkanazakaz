@@ -1,8 +1,12 @@
 {
-  "name": "Kovka",
+  "name": "Hotels24",
   "version": "0.0.10",
   "devDependencies": {
+<<<<<<< HEAD
     "event-stream": "^3.3.0",
+=======
+    "event-stream": "^3.2.1",
+>>>>>>> origin/master
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",
     "gulp-cache": "^0.2.8",
