@@ -1,24 +1,27 @@
 <?php get_header(); ?>
-	
-	<!-- section -->
-	<section role="main">
-		<!-- article -->
-		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
-		<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
-			<h1 class="page-title inner-title"><?php the_title(); ?></h1>
 
-			<?php the_content(); ?>
-			
-			<?php comments_template( '', true ); ?>
-			
-			<?php edit_post_link(); ?>
-		<?php endwhile; else: // If 404 page error ?>
-			<h2 class="page-title inner-title"><?php _e( 'Sorry, nothing to display.', 'wpeasy' ); ?></h2>
-		<?php endif; ?>
-		</article>
-		<!-- /article -->
-	</section>
-	<!-- /section -->
+    <?php get_template_part('examples-container'); ?>
 
-<?php get_sidebar(); ?>
+    <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+
+        <div class="page-real-content clearfix">
+
+            <h1><?php the_title(); ?></h1>
+            <div class="breadcrumbs"> </div>
+
+            <?php the_content(); ?>
+
+        </div><!-- page-real-content clearfix -->
+
+    <?php endwhile; else: // If 404 page error ?>
+
+        <div class="page-real-content clearfix">
+            <h2 class="page-title inner-title"><?php _e( 'Sorry, nothing to display.', 'wpeasy' ); ?></h2>
+            </div><!-- page-real-content clearfix -->
+    <?php endif; ?>
+
+        </div>
+    </div>
+</div>
+
 <?php get_footer(); ?>
