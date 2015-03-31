@@ -44,23 +44,12 @@
 
                 <div class="page-content" id="column-right">
 
+                	<?php wpeHeadNav(); ?>
 
-                    <ul class="top-menu">
-                        <li><a href="http://kovkanazakaz.com/about/index.html" title="О компании">О компании</a>
-                        </li>
-                        <li><a href="http://kovkanazakaz.com/contacts/index.html" title="Контактная информация">Контактная информация</a>
-                        </li>
-                        <li>
-                            <a href="http://kovkanazakaz.com/favorites/index.html" title="Мне понравилось" class="favorites">
-                                <div class="before"></div>Мне понравилось</a>
-                        </li>
-                    </ul><!-- top-menu -->
-
-
-                    <div class="contacts-container">
+                	<div class="contacts-container">
                         <div class="contacts">
                             <div class="phone-container">
-                                <strong class="phone">+7&nbsp;(495)&nbsp;960-36-29</strong> (телефон в&nbsp;Москве)
+                                <strong class="phone">+7 (495) 960-36-29</strong> (телефон в Москве)
                             </div>
                             <div class="callback-container">
                                 <ul>
@@ -99,9 +88,9 @@
                                     <img src="<?php echo get_template_directory_uri(); ?>/img/manager-photo.jpg" alt="Менеджер онлайн" title="Менеджер онлайн" width="67" height="67">
                                 </div>
                                 <div class="description">
-                                    <p>Менеджер сейчас на&nbsp;сайте</p>
+                                    <p>Менеджер сейчас на сайте</p>
                                     <div class="button-container">
-                                        <button type="submit" class="btn btn-default"><img src="<?php echo get_template_directory_uri(); ?>/img/online-chat-icon.png" alt="" title="" class="icon" width="17" height="17">&nbsp;Онлайн-консультация&nbsp;</button>
+                                        <button type="submit" class="btn btn-default"><img src="<?php echo get_template_directory_uri(); ?>/img/online-chat-icon.png" alt="" title="" class="icon" width="17" height="17"> Онлайн-консультация </button>
                                     </div>
                                 </div>
                             </div>

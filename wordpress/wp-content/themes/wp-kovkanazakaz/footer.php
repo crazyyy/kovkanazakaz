@@ -9,26 +9,18 @@
 
 <div class="footer clearfix">
     <div class="footer-copyright">
-        <p>
-            ©&nbsp;2005&nbsp;—&nbsp;2015,
-            <br> Кухонные кголки на&nbsp;заказ
-            <br> в&nbsp;Москве и&nbsp;Московской области.
+        <p>© 2005 — 2015,<br> Кухонные кголки на заказ<br> в Москве и Московской области.</p>
+        <p><a href="http://kovkanazakaz.com/map/index.html" title="Карта сайта">Карта сайта</a><br><a href="http://kovkanazakaz.com/contacts/index.html" title="Контактная информация">Контактная информация</a>
         </p>
-        <p>
-            <a href="http://kovkanazakaz.com/map/index.html" title="Карта сайта">Карта сайта</a>
-            <br>
-            <a href="http://kovkanazakaz.com/contacts/index.html" title="Контактная информация">Контактная информация</a>
-        </p>
-    </div>
-    <div class="footer-social-links">
-        <p>Поделитесь ссылкой или&nbsp;сохраните в&nbsp;социальных сетях:</p>
+    </div><!-- footer-copyright -->
 
+    <div class="footer-social-links">
+        <p>Поделитесь ссылкой или сохраните в социальных сетях:</p>
     </div>
+
     <div class="footer-navigation">
         <div class="list">
             <h5>Кухонные уголки</h5>
-
-
             <ul>
                 <li><a href="http://kovkanazakaz.com/forging/works/index.html" title="Выполненные работы">Выполненные работы</a>
                 </li>
@@ -42,7 +34,7 @@
                 <li>ОГРН: 314623414800024</li>
             </ul>
         </div>
-    </div>
+    </div><!-- footer-navigation -->
 
 </div>
 
@@ -50,24 +42,17 @@
 
 <!--floated menu-->
 <div class="floated" id="floated">
+    
     <div class="contacts-container">
         <div class="contacts">
             <div class="phone-container">
-                <strong class="phone">+7&nbsp;(495)&nbsp;777-96-29</strong>
+                <strong class="phone">+7 (495) 777-96-29</strong>
             </div>
         </div>
     </div>
 
-    <ul class="top-menu">
-        <li><a href="http://kovkanazakaz.com/about/index.html" title="О компании"> компании</a>
-        </li>
-        <li><a href="http://kovkanazakaz.com/contacts/index.html" title="Контактная информация">Контактная информация</a>
-        </li>
-        <li>
-            <a href="http://kovkanazakaz.com/favorites/index.html" title="Мне понравилось" class="favorites">
-                <div class="before"></div>Мне понравилось</a>
-        </li>
-    </ul>
+    <?php wpeHeadNav(); ?>
+
 </div><!--floated menu-->
 
 
