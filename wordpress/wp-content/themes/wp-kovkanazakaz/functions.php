@@ -799,4 +799,46 @@ function top_level_cats_remove_cat_base($link)
 	return preg_replace('|' . $category_base . '|', '', $link, 1);
 }
 
+
+
+add_action( 'init', 'register_cpt_products' );
+function register_cpt_products() {
+    $labels = array( 
+        'name' => _x( 'Products', 'products' ),
+        'singular_name' => _x( 'products', 'products' ),
+        'add_new' => _x( 'Add New', 'products' ),
+        'add_new_item' => _x( 'Add New products', 'products' ),
+        'edit_item' => _x( 'Edit products', 'products' ),
+        'new_item' => _x( 'New products', 'products' ),
+        'view_item' => _x( 'View products', 'products' ),
+        'search_items' => _x( 'Search Products', 'products' ),
+        'not_found' => _x( 'No афиша found', 'products' ),
+        'not_found_in_trash' => _x( 'No products found in Trash', 'products' ),
+        'parent_item_colon' => _x( 'Parent products:', 'products' ),
+        'menu_name' => _x( 'Products', 'products' ),
+    );
+    $args = array( 
+        'labels' => $labels,
+        'hierarchical' => true,
+        
+        'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields', 'revisions' ),
+        'taxonomies' => array( 'category', 'post_tag' ),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 5,
+        
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => true,
+        'exclude_from_search' => false,
+        'has_archive' => true,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => true,
+        'capability_type' => 'post'
+    );
+    register_post_type( 'products', $args );
+}
+
+
 ?>
