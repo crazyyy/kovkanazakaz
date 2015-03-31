@@ -99,22 +99,11 @@ function my_remove_recent_comments_style() {
     ));
 }
 
-
-
 // Load any external files you have here
 
 /*------------------------------------*\
     Theme Support
 \*------------------------------------*/
-
-
-
-
-
-
-
-
-
 
 if (!isset($content_width))
 {
@@ -234,7 +223,7 @@ function wpeSideNav() {
 		'after'           => '',
 		'link_before'     => '',
 		'link_after'      => '',
-		'items_wrap'      => '<ul class="sidebarnav">%3$s</ul>',
+		'items_wrap'      => '<ul class="side-menu">%3$s</ul>',
 		'depth'           => 0,
 		'walker'          => ''
 		)
