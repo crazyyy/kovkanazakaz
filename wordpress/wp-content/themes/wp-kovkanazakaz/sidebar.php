@@ -8,7 +8,7 @@
         <?php wpeSideNav(); ?>
 
         <div id="percent-sticker">
-            <a href="http://kovkanazakaz.com/contacts/feedback/index.html" title="Присылайте предложение конкурентов и скидка на ковку ваша">Присылайте предложение конкурентов и скидка ваша!</a>
+            <a href="#">Присылайте предложение конкурентов и скидка ваша!</a>
         </div>
 
         <div id="offers-form-container">
