@@ -1,13 +1,19 @@
 <?php /* Template Name: Texture Page */ get_header(); ?>
 
-<div class="page-real-content clearfix">
-    <h1><?php the_title(); ?></h1>
 
+
+<div class="page-real-content texture-choise clearfix">
+    <h1><?php the_title(); ?></h1>
     <div class="breadcrumbs">
         <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
     </div><!-- breadcrumbs -->
+    <div class="main-contenta">
+        <?php the_content(); ?>
+    </div>
+    <!-- /.main-contenta -->
 
-    <ul class="list-inline separateWorksList" itemtype="http://schema.org/ItemList" itemscope="itemscope">
+<div class="listBlocks">
+
         <?php
             $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
             $temp = $wp_query;
@@ -15,82 +21,24 @@
             query_posts('post_type=products'.'&showposts=100'.'&paged='.$paged);
             while (have_posts()) : the_post();
         ?>
-        <li itemtype="http://schema.org/ImageObject" itemscope="itemscope">
-            <?php 
+<a href="/works/railings/" title="Перила">      
+
+    <?php 
                 $images = get_field('gallery'); 
                 $image_1 = $images[0]; 
             ?>
-            <meta 
-                itemprop="contentUrl" 
-                content="<?php echo $image_1[url]; ?>"
-            >
-            <meta itemprop="name" content="<?php the_title(); ?> №<?php the_ID(); ?>">
-            <div class="work-image-container">
-                <img 
-                    class="work-image thezoom lazy the-zoom-img the-zoom-zoom_in" 
-                    data-id="<?php the_ID(); ?>" 
-                    thezoom-bigsrc="<?php echo $image_1[url]; ?>" 
-                    src="<?php echo $image_1[url]; ?>" 
-                    data-no-retina="true" 
-                    width="192" 
-                    height="154" 
-                    alt="<?php the_title(); ?>" 
-                    title="<?php the_title(); ?>"
-                >
-            </div>
-            <p class="text-center work-favourite-link">
-                <a 
-                    href="#favourite_<?php the_ID(); ?>" 
-                    title="Отметить работу" 
-                    data-id="<?php the_ID(); ?>" 
-                    class=""
-                >
-                    Артикул <?php the_ID(); ?>
-                </a>
-                <small>Добавить в избранное</small>
-            </p>
-        </li>
+
+
+<div><p class="text-center"><img src="<?php echo $image_1[url]; ?>" width="200" height="200" alt="Перила" title="Перила"></p><p class="text-center">Перила</p></div></a>
+
+
+</a><!-- listBlocks -->
+
         <?php endwhile; ?>
         <?php wp_reset_query(); ?>
-    </ul><!-- list-inline separateWorksList -->
-
-    <div class="main-contenta">
-        <?php the_content(); ?>
-    </div>
-    <!-- /.main-contenta -->
-
-    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/gsap.min.js"></script>
-    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/thezoom.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-
-            $("img.thezoom").thezoom({
-                rel: 'works',
-                easing: 'easeQuad',
-                hover_enabled: false,
-                hover_scale: 1.4,
-                hover_duration: 100,
-                overlay_opacity: 0.5,
-                close_button_text: 'Закрыть',
-                social_buttons_enabled: false
-            });
-
-            $('img.thezoom').bind('click', function () {
-                var item_id = $(this).data('id');
-                $.ajax({
-                    url: "./",
-                    type: "POST",
-                    data: {
-                        id: item_id,
-                        makeviewpost: true
-                    },
-                    dataType: "json"
-                });
-            });
-        });
-    </script>
-    <!--для эффектов перехода-->
-    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery-ui.min.js"></script>
-
 </div>
+
+</div><!-- page-real-content texture-choise -->
+
+
 <?php get_footer(); ?>

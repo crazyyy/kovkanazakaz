@@ -1,4 +1,4 @@
-<?php /* Template Name: Works Page Template */ get_header(); ?>
+<?php /* Template Name: Works Page */ get_header(); ?>
 
 <div class="page-real-content ready-works clearfix">
     <h1><?php the_title(); ?></h1>

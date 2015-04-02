@@ -1,4 +1,4 @@
-<?php /* Template Name: Product Page Template */ get_header(); ?>
+<?php /* Template Name: Product Page */ get_header(); ?>
 
 <div class="page-real-content clearfix">
     <h1><?php the_title(); ?></h1>
@@ -25,19 +25,17 @@
                 content="<?php echo $image_1[url]; ?>"
             >
             <meta itemprop="name" content="<?php the_title(); ?> №<?php the_ID(); ?>">
-            <div class="work-image-container">
+            <a href="<?php the_permalink(); ?>" class="work-image-container">
                 <img 
                     class="work-image thezoom lazy the-zoom-img the-zoom-zoom_in" 
                     data-id="<?php the_ID(); ?>" 
-                    thezoom-bigsrc="<?php echo $image_1[url]; ?>" 
                     src="<?php echo $image_1[url]; ?>" 
-                    data-no-retina="true" 
                     width="192" 
                     height="154" 
                     alt="<?php the_title(); ?>" 
                     title="<?php the_title(); ?>"
                 >
-            </div>
+            </a>
             <p class="text-center work-favourite-link">
                 <a 
                     href="#favourite_<?php the_ID(); ?>" 
@@ -47,7 +45,6 @@
                 >
                     Артикул <?php the_ID(); ?>
                 </a>
-                <small>Добавить в избранное</small>
             </p>
         </li>
         <?php endwhile; ?>
@@ -58,39 +55,6 @@
         <?php the_content(); ?>
     </div>
     <!-- /.main-contenta -->
-
-    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/gsap.min.js"></script>
-    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/thezoom.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-
-            $("img.thezoom").thezoom({
-                rel: 'works',
-                easing: 'easeQuad',
-                hover_enabled: false,
-                hover_scale: 1.4,
-                hover_duration: 100,
-                overlay_opacity: 0.5,
-                close_button_text: 'Закрыть',
-                social_buttons_enabled: false
-            });
-
-            $('img.thezoom').bind('click', function () {
-                var item_id = $(this).data('id');
-                $.ajax({
-                    url: "./",
-                    type: "POST",
-                    data: {
-                        id: item_id,
-                        makeviewpost: true
-                    },
-                    dataType: "json"
-                });
-            });
-        });
-    </script>
-    <!--для эффектов перехода-->
-    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery-ui.min.js"></script>
 
 </div>
 <?php get_footer(); ?>
