@@ -1,15 +1,14 @@
 <?php /* Template Name: Works Page Template */ get_header(); ?>
+    
+    <div class="page-real-content clearfix">
+        <h1><?php the_title(); ?></h1>
+        <div class="breadcrumbs">
+            <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
+        </div><!-- breadcrumbs -->
 
-                    <div class="page-real-content clearfix">
-                        <h1 title="Фотографии готовых работ">Фотографии готовых работ</h1>
+        <?php the_content(); ?>
 
-                        <div class="breadcrumbs">
-
-                        </div>
-
-                        <p>Каждое кованое изделие индивидуально, даже если&nbsp;изготавливается по&nbsp;одному эскизу. Стоимость ковки зависит от&nbsp;количества и&nbsp;типа использованных материалов, сложности художественных элементов.</p>
-                        <p>Мы не&nbsp;просто публикуем для&nbsp;вас&nbsp;фотографии реальных работ, выполненных нами по&nbsp;всей Москве и&nbsp;Московской области, но&nbsp;и&nbsp;снабдили каждую выставленную работу ценовой категорией. Стоимость ковки всегда&nbsp;приблизительная, поскольку конечная цена зависит от&nbsp;ваших пожеланий и&nbsp;всегда является договорной.</p>
-
+              
                         <div class="listBlocks">
                             <div>
                                 <a href="http://kovka-na-zakaz.ru/works/railings/" title="Перила">
