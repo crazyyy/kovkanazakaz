@@ -15,21 +15,16 @@
             query_posts('post_type=products'.'&showposts=100'.'&paged='.$paged);
             while (have_posts()) : the_post();
         ?>
-
-        <li itemtype="http://schema.org/Product" itemprop="itemListElement" itemscope="itemscope" class="class-b">
-        
+        <li itemtype="http://schema.org/ImageObject" itemscope="itemscope">
             <?php 
-             $images = get_field('gallery'); 
-             $image_1 = $images[0]; 
-            ?>    
-            
-            <meta itemprop="image" 
-
-                content="src= <?php echo $image_1[url]; ?>">
-                
+                $images = get_field('gallery'); 
+                $image_1 = $images[0]; 
+            ?>
             <meta 
-                itemprop="name" 
-                content="<?php the_title(); ?>">
+                itemprop="contentUrl" 
+                content="<?php echo $image_1[url]; ?>"
+            >
+            <meta itemprop="name" content="<?php the_title(); ?> №<?php the_ID(); ?>">
             <div class="work-image-container">
                 <img 
                     class="work-image thezoom lazy the-zoom-img the-zoom-zoom_in" 
@@ -38,21 +33,23 @@
                     src="<?php echo $image_1[url]; ?>" 
                     data-no-retina="true" 
                     width="192" 
-                    height="144" 
+                    height="154" 
                     alt="<?php the_title(); ?>" 
-                    title="<?php the_title(); ?>">
-                    
+                    title="<?php the_title(); ?>"
+                >
             </div>
             <p class="text-center work-favourite-link">
                 <a 
-                    href="http://kovka-na-zakaz.ru/works/railings/#favourite_<?php the_ID(); ?>" 
+                    href="#favourite_<?php the_ID(); ?>" 
                     title="Отметить работу" 
-                    data-id="<?php the_ID(); ?>">Артикул <?php the_ID(); ?>
+                    data-id="<?php the_ID(); ?>" 
+                    class=""
+                >
+                    Артикул <?php the_ID(); ?>
                 </a>
                 <small>Добавить в избранное</small>
             </p>
         </li>
-
         <?php endwhile; ?>
         <?php wp_reset_query(); ?>
     </ul><!-- list-inline separateWorksList -->
