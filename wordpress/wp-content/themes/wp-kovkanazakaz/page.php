@@ -1,13 +1,13 @@
 <?php get_header(); ?>
-
     <?php get_template_part('examples-container'); ?>
-
+    
     <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
         <div class="page-real-content clearfix">
-
             <h1><?php the_title(); ?></h1>
-            <div class="breadcrumbs"> </div>
+            <div class="breadcrumbs">
+                <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
+            </div><!-- breadcrumbs -->
 
             <?php the_content(); ?>
 
