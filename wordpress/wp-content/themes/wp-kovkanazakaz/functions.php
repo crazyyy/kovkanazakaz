@@ -569,7 +569,7 @@ function dimox_breadcrumbs() {
 	$show_on_home = 0; // 1 - показывать "хлебные крошки" на главной странице, 0 - не показывать
 	$show_home_link = 1; // 1 - показывать ссылку "Главная", 0 - не показывать
 	$show_title = 1; // 1 - показывать подсказку (title) для ссылок, 0 - не показывать
-	$delimiter = ' &raquo; '; // разделить между "крошками"
+	$delimiter = ' / '; // разделить между "крошками"
 	$before = '<span class="current">'; // тег перед текущей "крошкой"
 	$after = '</span>'; // тег после текущей "крошки"
 	/* === КОНЕЦ ОПЦИЙ === */
@@ -585,11 +585,11 @@ function dimox_breadcrumbs() {
 
 	if (is_home() || is_front_page()) {
 
-		if ($show_on_home == 1) echo '<div class="breadcrumbs"><a href="' . $home_link . '">' . $text['home'] . '</a></div>';
+		if ($show_on_home == 1) echo '<ul class="breadcrumb"><a href="' . $home_link . '">' . $text['home'] . '</a></ul>';
 
 	} else {
 
-		echo '<div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">';
+		echo '<ul class="breadcrumb" xmlns:v="http://rdf.data-vocabulary.org/#">';
 		if ($show_home_link == 1) {
 			echo '<a href="' . $home_link . '" rel="v:url" property="v:title">' . $text['home'] . '</a>';
 			if ($frontpage_id == 0 || $parent_id != $frontpage_id) echo $delimiter;
@@ -696,7 +696,7 @@ function dimox_breadcrumbs() {
 			if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ')';
 		}
 
-		echo '</div><!-- .breadcrumbs -->';
+		echo '</ul><!-- .breadcrumb -->';
 
 	}
 } // end dimox_breadcrumbs()
