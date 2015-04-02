@@ -3192,12 +3192,18 @@ img.thezoom {
     width: 100%;
     z-index: 1000;
     display: none;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #3F610C;
     border-bottom: 1px solid #dfdfdf;
     overflow: hidden;
     .top-menu {
         margin-left: 312px;
         padding: 7px 0px;
+        a{
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
     }
     .contacts-container {
         margin: 18px auto;
@@ -3206,6 +3212,10 @@ img.thezoom {
         float: left;
         .phone-container {
             padding-left: 60px;
+            strong {
+                color: #fff;
+                font-size: 22px;
+            }
         }
     }
 }
