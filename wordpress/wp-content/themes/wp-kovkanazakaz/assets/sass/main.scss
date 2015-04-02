@@ -3261,5 +3261,13 @@ img.thezoom {
         }
     }
 }
-
-/*# sourceMappingURL=/maps/main.css.map */
+.side-menu {
+    li {
+        &:last-child {
+            a {
+                background: url('../img/delivery-link-bg.png') no-repeat right center;
+                padding-right: 55px;
+            }
+        }
+    }
+}
