@@ -13,7 +13,7 @@
 
 	<!-- icons -->
 	<link href="<?php echo get_template_directory_uri(); ?>/favicon.ico" rel="shortcut icon">
-	<link href="<?php echo get_template_directory_uri(); ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 
 	<!-- css + javascript -->
 	<?php wp_head(); ?>

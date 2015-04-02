@@ -13,7 +13,7 @@
 <div class="footer clearfix">
     <div class="footer-copyright">
         <p>© 2005 — 2015,<br> Кухонные кголки на заказ<br> в Москве и Московской области.</p>
-        <p><a href="http://kovkanazakaz.com/map/index.html" title="Карта сайта">Карта сайта</a><br><a href="http://kovkanazakaz.com/contacts/index.html" title="Контактная информация">Контактная информация</a>
+        <p><a href="#" title="Карта сайта">Карта сайта</a><br><a href="#" title="Контактная информация">Контактная информация</a>
         </p>
     </div><!-- footer-copyright -->
 
@@ -25,9 +25,9 @@
         <div class="list">
             <h5>Кухонные уголки</h5>
             <ul>
-                <li><a href="http://kovkanazakaz.com/forging/works/index.html" title="Выполненные работы">Выполненные работы</a>
+                <li><a href="#" title="Выполненные работы">Выполненные работы</a>
                 </li>
-                <li><a href="http://kovkanazakaz.com/forging/pricing/index.html" title="Цены и сроки">Цены и сроки</a>
+                <li><a href="#" title="Цены и сроки">Цены и сроки</a>
                 </li>
             </ul>
         </div>
@@ -45,7 +45,6 @@
 
 <!--floated menu-->
 <div class="floated" id="floated">
-    
     <div class="contacts-container">
         <div class="contacts">
             <div class="phone-container">
@@ -53,9 +52,7 @@
             </div>
         </div>
     </div>
-
     <?php wpeHeadNav(); ?>
-
 </div><!--floated menu-->
 
 
