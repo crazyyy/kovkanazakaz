@@ -1,7 +1,4 @@
 <?php get_header(); ?>
-
-   
-
     <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
         <div class="page-real-content clearfix">
@@ -19,5 +16,4 @@
             <h2 class="page-title inner-title"><?php _e( 'Sorry, nothing to display.', 'wpeasy' ); ?></h2>
             </div><!-- page-real-content clearfix -->
     <?php endif; ?>
-
 <?php get_footer(); ?>
