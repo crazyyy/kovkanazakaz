@@ -1,3 +1,6 @@
+                </div>
+            </div>
+        </div>
 
         <div class="main-content-container-shadow"></div>
     </div>

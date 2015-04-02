@@ -88,7 +88,4 @@
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery-ui.min.js"></script>
 
 </div>
-</div>
-</div>
-</div>
 <?php get_footer(); ?>
