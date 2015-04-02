@@ -3,7 +3,9 @@
 
     <div class="page-real-content clearfix">
         <div class="three-steps-container">
-            <h4 class="text-center" title="Художественная ковка на заказ в три простых шага">Художественная ковка на&nbsp;заказ в&nbsp;три простых шага:</h4>
+
+            <h4 class="text-center" title="Художественная ковка на заказ в три простых шага">Художественная ковка на заказ в три простых шага:</h4>
+            
             <div class="steps">
                 <div class="step first">
                     Выбрать
@@ -23,7 +25,7 @@
                 <div class="step third">
                     Согласовать
                     <br> <a href="http://kovkanazakaz.com/shipping/index.html" title="Доставка кованых изделий">доставку</a>
-                    <br> и&nbsp;<a href="http://kovkanazakaz.com/mounting/index.html" title="Монтаж кованых изделий">монтаж</a>
+                    <br> и <a href="http://kovkanazakaz.com/mounting/index.html" title="Монтаж кованых изделий">монтаж</a>
                 </div>
             </div>
             <div class="steps-circle-shadow first"></div>
