@@ -310,8 +310,6 @@ body {
 .button-container {
     background: #a5c532;
     padding: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     border-radius: 5px;
     display: inline-block;
     *display: inline;
@@ -1155,33 +1153,6 @@ body {
     width: expression(document.body.clientWidth < 980? "980px": "auto" );
 }
 
-.clearfix {
-    *zoom: 1;
-    &:before {
-        content: " ";
-        display: table;
-    }
-    &:after {
-        content: " ";
-        display: table;
-        clear: both;
-    }
-}
-
-.button-container {
-    background: #a5c532;
-    padding: 5px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-    button {
-        text-shadow: 1px 1px 1px #fff;
-        white-space: nowrap;
-    }
-}
 
 .button-container-inline {
     text-shadow: 1px 1px 1px #fff;
@@ -2201,34 +2172,6 @@ body {
     width: expression(document.body.clientWidth < 980? "980px": "auto" );
 }
 
-.clearfix {
-    *zoom: 1;
-    &:before {
-        content: " ";
-        display: table;
-    }
-    &:after {
-        content: " ";
-        display: table;
-        clear: both;
-    }
-}
-
-.button-container {
-    background: #a5c532;
-    padding: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-    button {
-        text-shadow: 1px 1px 1px #fff;
-        white-space: nowrap;
-    }
-}
-
 .button-container-inline {
     text-shadow: 1px 1px 1px #fff;
     white-space: nowrap;
@@ -2918,8 +2861,9 @@ img.bg-gradient-repeat {
     margin: 20px 0;
 }
 .date {
-        color: #ccc;
-        font-size: 1em;
+    color: #ccc;
+    font-size: 1em;
+}
 .texture-choise {
     .listBlocks {
         a {
@@ -2938,24 +2882,24 @@ img.bg-gradient-repeat {
             }
         }        
     }
+}
 .feature-img{ 
-    
     margin-right: 20px;
     float:left;
     
-    }
+}
 .pagination{
     color:#46670F;
     text-align: center;
     font-weight:bold;
     font-size: 20px;
-    a{
+    a {
         color:#46670F;
         font-size:16px;
     }
 }
-.looper-title-inner-title{
-    a{
-        color:#46670F;
+.looper-title-inner-title {
+    a {
+        color: #46670F;
     }
 }
