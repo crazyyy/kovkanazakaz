@@ -1220,6 +1220,22 @@ img.thezoom {
     }
 }
 
+html {
+    height: 100%;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+body {
+    min-height: 100%;
+    min-width: 100%;
+    height: 100%;
+    background: #ef9c20;
+
+    min-width: 980px;
+    width: expression(document.body.clientWidth < 980? "980px": "auto" );
+}
+
 .clearfix {
     *zoom: 1;
     &:before {
