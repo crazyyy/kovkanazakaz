@@ -758,8 +758,6 @@ function top_level_cats_remove_cat_base($link)
 	return preg_replace('|' . $category_base . '|', '', $link, 1);
 }
 
-
-
 add_action( 'init', 'register_cpt_products' );
 function register_cpt_products() {
     $labels = array( 
@@ -797,6 +795,45 @@ function register_cpt_products() {
         'capability_type' => 'post'
     );
     register_post_type( 'products', $args );
+}
+
+add_action( 'init', 'register_cpt_ready_products' );
+function register_cpt_ready_products() {
+    $labels = array( 
+        'name' => _x( 'Ready Products', 'ready_products' ),
+        'singular_name' => _x( 'ready products', 'ready_products' ),
+        'add_new' => _x( 'Add Ready Products', 'ready_products' ),
+        'add_new_item' => _x( 'Add Ready Products', 'ready_products' ),
+        'edit_item' => _x( 'Edit Ready Products', 'ready_products' ),
+        'new_item' => _x( 'New Ready Products', 'ready_products' ),
+        'view_item' => _x( 'View Ready Products', 'ready_products' ),
+        'search_items' => _x( 'Search Ready Products', 'ready_products' ),
+        'not_found' => _x( 'No Ready Products', 'ready_products' ),
+        'not_found_in_trash' => _x( 'No Ready Products found in Trash', 'ready_products' ),
+        'parent_item_colon' => _x( 'Parent Ready Products:', 'ready_products' ),
+        'menu_name' => _x( 'Ready Products', 'ready_products' ),
+    );
+    $args = array( 
+        'labels' => $labels,
+        'hierarchical' => true,
+        
+        'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields', 'revisions' ),
+        'taxonomies' => array( 'category', 'post_tag' ),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 5,
+        
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => true,
+        'exclude_from_search' => false,
+        'has_archive' => true,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => true,
+        'capability_type' => 'post'
+    );
+    register_post_type( 'products_ready', $args );
 }
 
 
