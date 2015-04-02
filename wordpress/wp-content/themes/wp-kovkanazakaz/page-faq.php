@@ -20,8 +20,4 @@
             </div><!-- page-real-content clearfix -->
     <?php endif; ?>
 
-        </div>
-    </div>
-</div>
-
 <?php get_footer(); ?>
