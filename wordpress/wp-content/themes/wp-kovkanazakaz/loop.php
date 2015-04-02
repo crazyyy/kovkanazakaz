@@ -22,8 +22,7 @@
 		
 		<!-- /post details -->
 		
-		<?php wpeExcerpt('wpeExcerpt40'); ?>	
-		
+		<?php wpeExcerpt('wpeExcerpt40'); ?>
 	</article>
 	<!-- /article -->
 	

@@ -2883,10 +2883,38 @@ img.bg-gradient-repeat {
         }        
     }
 }
-.feature-img{ 
-    margin-right: 20px;
-    float:left;
-    
+article,
+section {
+    display: block;
+}
+.looper {
+    height: 260px;
+    margin: 0 0 20px;
+    .looper-title-inner-title {
+        float: right;
+        margin: 0 0 10px 0;
+        display: block;
+        a{
+            color: #46670F;
+            text-decoration: none;
+        }
+    }
+    .date,
+    p {
+        display: block;
+        float: right;
+    }
+    .feature-img { 
+        width: 300px;
+        height: 240px;
+        margin: 0 20px 0 0;
+        display: block;
+        float: left;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }  
 }
 .pagination{
     color:#46670F;
@@ -2896,10 +2924,5 @@ img.bg-gradient-repeat {
     a {
         color:#46670F;
         font-size:16px;
-    }
-}
-.looper-title-inner-title {
-    a {
-        color: #46670F;
     }
 }
