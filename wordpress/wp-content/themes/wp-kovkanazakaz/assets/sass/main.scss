@@ -2874,14 +2874,15 @@ img.bg-gradient-repeat {
             margin: 0 7px 15px;
             box-sizing: border-box;
             padding: 5px;
-            background-color: #000;
+            background: #627d4d;
+            background: linear-gradient(to bottom,  lighten(#627d4d, 30%) 0%,lighten(#1f3b08, 10%) 100%); 
             img {
                 width: 190px;
                 height: 190px;
                 border-radius: 50%;
             }
         }        
-    }
+    } 
 }
 article,
 section {

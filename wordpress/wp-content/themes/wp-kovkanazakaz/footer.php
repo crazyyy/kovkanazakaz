@@ -56,7 +56,11 @@
 </div><!--floated menu-->
 
 
-	<?php wp_footer(); ?>
+	<?php wp_footer(); ?>    
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.lazy.min.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.parallax.min.js" async=""></script>
 	<script type="text/javascript" async="" src="<?php echo get_template_directory_uri(); ?>/js/startup.js"></script>
 	
