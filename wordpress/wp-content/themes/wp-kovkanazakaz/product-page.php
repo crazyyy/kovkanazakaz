@@ -17,9 +17,16 @@
         ?>
 
         <li itemtype="http://schema.org/Product" itemprop="itemListElement" itemscope="itemscope" class="class-b">
+        
+            <?php 
+             $images = get_field('gallery'); 
+             $image_1 = $images[0]; 
+            ?>    
+            
             <meta itemprop="image" 
-                content="http://kovka-na-zakaz.ru/upload/kovka-na-zakaz/information_system_19/1/2/8/item_1289/small_information_items_1289.jpg">
-                <!-- big image link -->
+
+                content="src= <?php echo $image_1[url]; ?>">
+                
             <meta 
                 itemprop="name" 
                 content="<?php the_title(); ?>">
@@ -27,13 +34,14 @@
                 <img 
                     class="work-image thezoom lazy the-zoom-img the-zoom-zoom_in" 
                     data-id="<?php the_ID(); ?>" 
-                    thezoom-bigsrc="<?php echo get_template_directory_uri(); ?>//upload/kovka-na-zakaz/information_system_19/1/2/8/item_1289/information_items_1289.jpg" src="<?php echo get_template_directory_uri(); ?>/img/small_information_items_1289.jpg" 
+                    thezoom-bigsrc="<?php echo $image_1[url]; ?>" 
+                    src="<?php echo $image_1[url]; ?>" 
                     data-no-retina="true" 
                     width="192" 
                     height="144" 
                     alt="<?php the_title(); ?>" 
                     title="<?php the_title(); ?>">
-                    <!-- big image link -->
+                    
             </div>
             <p class="text-center work-favourite-link">
                 <a 
