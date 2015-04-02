@@ -1,7 +1,6 @@
                 </div>
             </div>
         </div>
-
         <div class="main-content-container-shadow"></div>
     </div>
     <img src="<?php echo get_template_directory_uri(); ?>/img/bg-gradient-repeat.png" class="bg-gradient-repeat" alt="" width="100%" height="100%">
@@ -54,7 +53,6 @@
     </div>
     <?php wpeHeadNav(); ?>
 </div><!--floated menu-->
-
 
 	<?php wp_footer(); ?>    
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.maskedinput.min.js"></script>
