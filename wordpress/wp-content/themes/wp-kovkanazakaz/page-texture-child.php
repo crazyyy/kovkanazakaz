@@ -8,7 +8,7 @@
         <div class="main-contenta clearfix">
             <?php the_content(); ?>
 
-            <ul class="list-inline separateWorksList" itemtype="http://schema.org/ItemList" itemscope="itemscope">
+            <ul class="list-inline page-texture-child-limba separateWorksList" itemtype="http://schema.org/ItemList" itemscope="itemscope">
                 <?php 
                     $posts = get_field('texture-children');
                 if( $posts ): ?>
@@ -23,7 +23,7 @@
                         <img src="<?php echo catchFirstImage(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
                     <?php endif; ?></a>
                     <!-- /post thumbnail -->
-                    <p class="text-center work-favourite-link">
+                    <p class="text-center">
                         <a href="<?php the_permalink(); ?>" >
                            <?php the_title(); ?>
                         </a>
