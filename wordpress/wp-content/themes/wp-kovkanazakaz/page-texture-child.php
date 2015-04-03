@@ -7,12 +7,34 @@
         </div><!-- breadcrumbs -->
         <div class="main-contenta clearfix">
             <?php the_content(); ?>
-            <ul class="texture-owners clearfix">
-                
-            </ul>
-            <!-- /.texture-owners -->
+
+            <ul class="list-inline separateWorksList" itemtype="http://schema.org/ItemList" itemscope="itemscope">
+                <?php 
+                    $posts = get_field('texture-children');
+                if( $posts ): ?>
+                <?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
+                    <?php setup_postdata($post); ?>
+                <li itemtype="http://schema.org/ImageObject" itemscope="itemscope">
+                    <!-- post thumbnail -->
+                    <a rel="nofollow" class="work-image-container" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                        <?php if ( has_post_thumbnail()) :
+                            the_post_thumbnail('medium');   
+                        else: ?>
+                        <img src="<?php echo catchFirstImage(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
+                    <?php endif; ?></a>
+                    <!-- /post thumbnail -->
+                    <p class="text-center work-favourite-link">
+                        <a href="<?php the_permalink(); ?>" >
+                           <?php the_title(); ?>
+                        </a>
+                    </p>
+                </li>
+                <?php endforeach; ?>
+
+                <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+                <?php endif; ?>
+            </ul><!-- list-inline separateWorksList -->
         </div>
         <!-- /.main-contenta -->
     </div><!-- page-real-content texture-choise -->
-
 <?php get_footer(); ?>

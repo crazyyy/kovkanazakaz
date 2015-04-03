@@ -12,36 +12,30 @@
     </div>
     <!-- /.main-contenta -->
 
-<div class="listBlocks">
-<?php 
+    <div class="listBlocks">
+        <?php 
+            $posts = get_field('texture-children');
+        if( $posts ): ?>
 
-$posts = get_field('relationship_field_name');
+        <?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
+            <?php setup_postdata($post); ?>
+            <a href="<?php the_permalink(); ?>">   
+                <div>
+                    <p class="text-center inc-img-200-200">
+                    <?php if ( has_post_thumbnail()) :
+                        the_post_thumbnail('medium');   
+                        else: ?>
+                        <img src="<?php echo catchFirstImage(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
+                    <?php endif; ?>
+                    </p>
+                    <p class="text-center"><?php the_title(); ?></p>
+                </div>
+            </a>
+        <?php endforeach; ?>
 
-if( $posts ): ?>
-
-    <?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
-        <?php setup_postdata($post); ?>
-<a href="<?php the_permalink(); ?>">   
-
-    <div>
-        <p class="text-center">
-            <img src="<?php echo $image_1[url]; ?>" width="200" height="200" alt="Перила" title="Перила">
-        </p>
-        <p class="text-center">Перила</p>
-    </div>
-            
-</a>
-    <?php endforeach; ?>
-
-    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
-<?php endif; ?>
-
-
-
-
-</div><!-- listBlocks -->
+        <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+        <?php endif; ?>
+    </div><!-- listBlocks -->
 
 </div><!-- page-real-content texture-choise -->
-
-
 <?php get_footer(); ?>
