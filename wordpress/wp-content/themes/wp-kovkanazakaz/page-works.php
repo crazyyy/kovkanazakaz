@@ -12,7 +12,7 @@
             $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
             $temp = $wp_query;
             $wp_query= null;
-            query_posts('post_type=products'.'&showposts=100'.'&paged='.$paged);
+            query_posts('post_type=products_ready'.'&showposts=100'.'&paged='.$paged);
             while (have_posts()) : the_post();
         ?>
         <li itemtype="http://schema.org/ImageObject" itemscope="itemscope">
