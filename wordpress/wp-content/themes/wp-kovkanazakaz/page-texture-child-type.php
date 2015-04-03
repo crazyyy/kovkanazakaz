@@ -1,4 +1,4 @@
-<?php /* Template Name: Texture Child Page */ get_header(); ?>
+<?php /* Template Name: Texture Child Type Page */ get_header(); ?>
 
     <div class="page-real-content texture-choise clearfix">
         <h1><?php the_title(); ?></h1>
