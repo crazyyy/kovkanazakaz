@@ -35,13 +35,8 @@
                 >
             </a>
             <p class="text-center work-favourite-link">
-<<<<<<< HEAD
                 <?php the_title(); ?><br>
-                Стоимость 5000 
-=======
-                
-                <?php the_field('price'); ?> <br>
->>>>>>> origin/DanStix
+                Стоимость <?php the_field('price'); ?>
             </p>
         </li>
         <?php endwhile; ?>
