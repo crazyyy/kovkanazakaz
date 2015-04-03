@@ -17,20 +17,7 @@
 
 	<!-- css + javascript -->
 	<?php wp_head(); ?>
-	<script>
-	!function(){
-		// configure legacy, retina, touch requirements @ conditionizr.com
-		conditionizr()
-	}()
-	</script>
 
-
-    <script type="text/javascript" async="" src="<?php echo get_template_directory_uri(); ?>/other/84233"></script>
-  	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.maskedinput.min.js"></script>
-    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.cookie.js"></script>
-    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.lazy.min.js"></script>
 </head> 
 <body <?php body_class(); ?>>
 
