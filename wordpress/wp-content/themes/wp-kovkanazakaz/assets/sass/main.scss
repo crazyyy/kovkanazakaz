@@ -2506,7 +2506,11 @@ img.bg-gradient-repeat {
             box-sizing: border-box;
             padding: 5px;
             background: #627d4d;
-            background: linear-gradient(to bottom,  lighten(#627d4d, 30%) 0%,lighten(#1f3b08, 10%) 100%); 
+            background: linear-gradient(to bottom,  lighten(#627d4d, 30%) 0%,lighten(#1f3b08, 10%) 100%);
+            transition: all 1s;
+            &:hover {
+                background: linear-gradient(to bottom,  lighten(#1f3b08, 30%) 0%,lighten(#627d4d, 10%) 100%); 
+            }
             img {
                 width: 190px;
                 height: 190px;

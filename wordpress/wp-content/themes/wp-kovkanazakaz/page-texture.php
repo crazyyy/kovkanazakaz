@@ -13,30 +13,33 @@
     <!-- /.main-contenta -->
 
 <div class="listBlocks">
+<?php 
 
-        <?php
-            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-            $temp = $wp_query;
-            $wp_query= null;
-            query_posts('post_type=products'.'&showposts=100'.'&paged='.$paged);
-            while (have_posts()) : the_post();
-        ?>
-<a href="/works/railings/" title="Перила">      
+$posts = get_field('relationship_field_name');
 
-    <?php 
-                $images = get_field('gallery'); 
-                $image_1 = $images[0]; 
-            ?>
+if( $posts ): ?>
+
+    <?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
+        <?php setup_postdata($post); ?>
+<a href="<?php the_permalink(); ?>">   
+
+    <div>
+        <p class="text-center">
+            <img src="<?php echo $image_1[url]; ?>" width="200" height="200" alt="Перила" title="Перила">
+        </p>
+        <p class="text-center">Перила</p>
+    </div>
+            
+</a>
+    <?php endforeach; ?>
+
+    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+<?php endif; ?>
 
 
-<div><p class="text-center"><img src="<?php echo $image_1[url]; ?>" width="200" height="200" alt="Перила" title="Перила"></p><p class="text-center">Перила</p></div></a>
 
 
-</a><!-- listBlocks -->
-
-        <?php endwhile; ?>
-        <?php wp_reset_query(); ?>
-</div>
+</div><!-- listBlocks -->
 
 </div><!-- page-real-content texture-choise -->
 
