@@ -35,8 +35,8 @@
                 >
             </a>
             <p class="text-center work-favourite-link">
-                Стоимость 5000 <br>
-
+                <?php the_title(); ?><br>
+                Стоимость 5000 
             </p>
         </li>
         <?php endwhile; ?>
