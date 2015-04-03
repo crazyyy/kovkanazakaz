@@ -35,8 +35,8 @@
                 >
             </a>
             <p class="text-center work-favourite-link">
-                
-                <?php the_field('price'); ?> <br>
+                <?php the_title(); ?><br>
+                Стоимость <?php the_field('price'); ?>
             </p>
         </li>
         <?php endwhile; ?>
