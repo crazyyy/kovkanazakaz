@@ -37,14 +37,8 @@
                 >
             </a>
             <p class="text-center work-favourite-link">
-                <a 
-                    href="#favourite_<?php the_ID(); ?>" 
-                    title="Отметить работу" 
-                    data-id="<?php the_ID(); ?>" 
-                    class=""
-                >
-                    Артикул <?php the_ID(); ?>
-                </a>
+                Стоимость 5000 <br>
+                
             </p>
         </li>
         <?php endwhile; ?>
