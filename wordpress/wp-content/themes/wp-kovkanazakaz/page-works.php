@@ -16,26 +16,14 @@
             while (have_posts()) : the_post();
         ?>
         <li itemtype="http://schema.org/ImageObject" itemscope="itemscope">
-            <?php 
-                $images = get_field('gallery'); 
-                $image_1 = $images[0]; 
-            ?>
-            <meta 
-                itemprop="contentUrl" 
-                content="<?php echo $image_1[url]; ?>"
-            >
-            <meta itemprop="name" content="<?php the_title(); ?> №<?php the_ID(); ?>">
             <div >
-            <a href="<?php echo $image_1[url]; ?>" class="work-image-container" rel="lightbox">
-                <img 
-                    class="work-image thezoom lazy the-zoom-img the-zoom-zoom_in" 
-                    data-id="<?php the_ID(); ?>" 
-                    src="<?php echo $image_1[url]; ?>" 
-                    width="192" 
-                    height="154" 
-                    alt="<?php the_title(); ?>" 
-                    title="<?php the_title(); ?>"
-                >
+            <a href="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );; ?>" class="work-image-container work-image thezoom lazy the-zoom-img the-zoom-zoom_in" rel="lightbox">
+            
+                <?php if ( has_post_thumbnail()) :
+                the_post_thumbnail('medium');   
+                    else: ?>
+                    <img src="<?php echo catchFirstImage(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
+                <?php endif; ?>
             </a>
             </div>
             <p class="text-center work-favourite-link">
