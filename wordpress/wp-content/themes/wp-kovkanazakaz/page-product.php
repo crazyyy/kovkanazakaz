@@ -27,8 +27,6 @@
             <meta itemprop="name" content="<?php the_title(); ?> №<?php the_ID(); ?>">
             <a href="<?php the_permalink(); ?>" class="work-image-container">
                 <img 
-                    class="work-image thezoom lazy the-zoom-img the-zoom-zoom_in" 
-                    data-id="<?php the_ID(); ?>" 
                     src="<?php echo $image_1[url]; ?>" 
                     width="192" 
                     height="154" 
@@ -38,7 +36,7 @@
             </a>
             <p class="text-center work-favourite-link">
                 Стоимость 5000 <br>
-                
+
             </p>
         </li>
         <?php endwhile; ?>
