@@ -36,7 +36,7 @@
             </a>
             <p class="text-center work-favourite-link">
                 <?php the_title(); ?><br>
-                <p class="price text-center">Стоимость <?php the_field('price'); ?> </p>
+                Стоимость <?php the_field('price'); ?><img src="<?php echo get_template_directory_uri(); ?>/img/rouble.png"> 
             </p>
         </li>
         <?php endwhile; ?>
