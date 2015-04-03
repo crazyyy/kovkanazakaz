@@ -62,5 +62,6 @@
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.parallax.min.js" async=""></script>
 	<script type="text/javascript" async="" src="<?php echo get_template_directory_uri(); ?>/js/startup.js"></script>
 	
+
 </body>
 </html>

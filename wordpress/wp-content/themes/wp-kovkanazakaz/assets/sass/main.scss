@@ -2506,7 +2506,11 @@ img.bg-gradient-repeat {
             box-sizing: border-box;
             padding: 5px;
             background: #627d4d;
-            background: linear-gradient(to bottom,  lighten(#627d4d, 30%) 0%,lighten(#1f3b08, 10%) 100%); 
+            background: linear-gradient(to bottom,  lighten(#627d4d, 30%) 0%,lighten(#1f3b08, 10%) 100%);
+            transition: all 1s;
+            &:hover {
+                background: linear-gradient(to bottom,  lighten(#1f3b08, 30%) 0%,lighten(#627d4d, 10%) 100%); 
+            }
             img {
                 width: 190px;
                 height: 190px;
@@ -2553,8 +2557,7 @@ section {
         color: #46670F;
     }
 }
-
-       
+      
 .pagination{
     clear: both;
     color:#46670F;
@@ -2572,4 +2575,50 @@ section {
     span{
         color:black;
     }
+}
+/*------------------------------------*\
+    WORDPRESS CORE
+\*------------------------------------*/
+.alignnone {
+  margin: 5px;
+}
+.aligncenter,
+div.aligncenter {
+  display: block;
+  margin: 5px auto;
+}
+.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+.wp-caption {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  max-width: 96%;
+  padding: 5px 3px 10px;
+  text-align: center;
+  img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 98.5%;
+    padding: 0;
+    width: auto;
+  }
+  .wp-caption-text {
+    font-size: 80%;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 4px 5px;
+  }
+}
+.gallery-caption {
+  font-size: 80%;
+  line-height: 17px;
+  margin: 0;
+  padding: 0 4px 5px;
 }
