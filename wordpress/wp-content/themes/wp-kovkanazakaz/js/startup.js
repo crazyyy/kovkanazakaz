@@ -1,11 +1,3 @@
-/*window.contentHeight = 0;
-function Resize() {
-	currentWindowHeight = $(document).height();                                
-	if (contentHeight < currentWindowHeight - 160) {
-		$('.page-container').css('min-height', (currentWindowHeight - 160) + "px");
-	}                               
-}
-*/
 $(function(){
 	if(!( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
         try{
@@ -18,25 +10,7 @@ $(function(){
             //
         }
 	}
-	
-	/*window.contentHeight = $('.page-container').height();
-	Resize();
-	$($(window), $(document.body), $(document)).on('drop resize', function () {
-		Resize();
-	});*/
 });
-
-function jivo_onLoadCallback() {
-    if (jivo_config.chat_mode == "online") {
-        $('#online-chat').css('visibility', 'visible');
-        $('#online-chat button').click(function(){
-            jivo_api.open();
-            return false;
-        });
-    } else {
-        $('#online-chat').css('visibility', 'hidden');
-    }
-}
 
 var showFavCount;
 var mobileScrollTimer = null;
@@ -63,12 +37,6 @@ $(function(){
         });
     }
 
-    /*$('img.lazy').lazy({
-        enableThrottle: true,
-        throttle: 250,
-        visibleOnly: false
-    });*/
-
     //перепроверка недозагруженных изображений
     $("img")
         .load(function(){})
@@ -87,11 +55,11 @@ $(function(){
         }
 
         if (count){
-            $('#floated a.favorites, .page-container a.favorites').addClass('count');
-            $('#floated a.favorites .before, .page-container a.favorites .before').html(count);
+            $('#floated .favorites a, .page-container .favorites a').addClass('count');
+            $('#floated .favorites a .before, .page-container .favorites a .before').html(count);
         } else {
-            $('#floated a.favorites, .page-container a.favorites').removeClass('count');
-            $('#floated a.favorites .before, .page-container a.favorites .before').html('');
+            $('#floated .favorites a, .page-container .favorites a').removeClass('count');
+            $('#floated .favorites a .before, .page-container .favorites a .before').html('');
         }
     };
 
@@ -110,20 +78,23 @@ $(function(){
 
             var nearestImage = $(this).closest('li');
 
+            console.log($self);
+
             if ( $('#floated').is(":visible") ){ //виден плавающий блок
-                nearestImage.effect( "transfer", { to: $( "#floated a.favorites").closest('li'), className: "transferEffect" }, 650, function(){
-                    object = $( "#floated a.favorites");
-                });
+                nearestImage.effect( 
+                    "transfer", { 
+                        to: $( "#floated .favorites a").closest('li'), className: "transferEffect" 
+                    }, 650, function(){
+                        object = $( "#floated .favorites a");
+                    });
             } else {
-                nearestImage.effect( "transfer", { to: $( ".page-container a.favorites").closest('li'), className: "transferEffect" }, 650, function(){
-                    object = $( ".page-container a.favorites" );
+                nearestImage.effect( "transfer", { to: $( ".page-container .favorites a").closest('li'), className: "transferEffect" }, 650, function(){
+                    object = $( ".page-container .favorites a" );
                 });
             }
 
             try{
-                //пытаемся записать событие в метрику
-                yaCounter22150097.reachGoal('FAVORITED_WORK');
-                ga('send', 'event', 'work', 'add', 'favorite');
+                //
             } catch(e){
                 //
             }
