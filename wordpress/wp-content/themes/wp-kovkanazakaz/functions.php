@@ -751,43 +751,43 @@ function register_cpt_ready_products() {
 }
 
 
-add_action( 'init', 'register_cpt_reviews' );
-function register_cpt_reviews() {
-    $labels = array( 
-        'name' => _x( 'Reviews', 'reviews' ),
-        'singular_name' => _x( 'reviews', 'reviews' ),
-        'add_new' => _x( 'Add reviews', 'reviews' ),
-        'add_new_item' => _x( 'Add review', 'reviews' ),
-        'edit_item' => _x( 'Edit reviews', 'reviews' ),
-        'new_item' => _x( 'New review', 'reviews' ),
-        'view_item' => _x( 'View reviews', 'reviews' ),
-        'search_items' => _x( 'Search reviews', 'reviews' ),
-        'not_found' => _x( 'No reviews', 'reviews' ),
-        'not_found_in_trash' => _x( 'No reviews found in Trash', 'reviews' ),
-        'parent_item_colon' => _x( 'Parent reviews:', 'reviews' ),
-        'menu_name' => _x( 'Reviews', 'reviews' ),
-    );
-    $args = array( 
-        'labels' => $labels,
-        'hierarchical' => true,
+// add_action( 'init', 'register_cpt_reviews' );
+// function register_cpt_reviews() {
+//     $labels = array( 
+//         'name' => _x( 'Reviews', 'reviews' ),
+//         'singular_name' => _x( 'reviews', 'reviews' ),
+//         'add_new' => _x( 'Add reviews', 'reviews' ),
+//         'add_new_item' => _x( 'Add review', 'reviews' ),
+//         'edit_item' => _x( 'Edit reviews', 'reviews' ),
+//         'new_item' => _x( 'New review', 'reviews' ),
+//         'view_item' => _x( 'View reviews', 'reviews' ),
+//         'search_items' => _x( 'Search reviews', 'reviews' ),
+//         'not_found' => _x( 'No reviews', 'reviews' ),
+//         'not_found_in_trash' => _x( 'No reviews found in Trash', 'reviews' ),
+//         'parent_item_colon' => _x( 'Parent reviews:', 'reviews' ),
+//         'menu_name' => _x( 'Reviews', 'reviews' ),
+//     );
+//     $args = array( 
+//         'labels' => $labels,
+//         'hierarchical' => true,
         
-        'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields', 'revisions' ),
-        'public' => true,
-        'show_ui' => true,
-        'show_in_menu' => true,
-        'menu_position' => 7,
+//         'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields', 'revisions' ),
+//         'public' => true,
+//         'show_ui' => true,
+//         'show_in_menu' => true,
+//         'menu_position' => 7,
         
-        'show_in_nav_menus' => true,
-        'publicly_queryable' => true,
-        'exclude_from_search' => false,
-        'has_archive' => true,
-        'query_var' => true,
-        'can_export' => true,
-        'rewrite' => true,
-        'capability_type' => 'post'
-    );
-    register_post_type( 'reviews', $args );
-}
+//         'show_in_nav_menus' => true,
+//         'publicly_queryable' => true,
+//         'exclude_from_search' => false,
+//         'has_archive' => true,
+//         'query_var' => true,
+//         'can_export' => true,
+//         'rewrite' => true,
+//         'capability_type' => 'post'
+//     );
+//     register_post_type( 'reviews', $args );
+// }
 
 
 
