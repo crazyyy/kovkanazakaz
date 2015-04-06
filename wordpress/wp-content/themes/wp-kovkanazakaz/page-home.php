@@ -3,7 +3,6 @@
 
     <div class="page-real-content clearfix">
         <div class="three-steps-container">
-
             <h4 class="text-center" title="Художественная ковка на заказ в три простых шага">Художественная ковка на заказ в три простых шага:</h4>
             
             <div class="steps">
