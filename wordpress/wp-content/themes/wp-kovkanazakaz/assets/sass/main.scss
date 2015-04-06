@@ -315,7 +315,134 @@ body {
         white-space: nowrap;
     }
 }
+.button-container {
+    background: #a5c532;
+    padding: 5px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
 
+.page-reviews-list .review-datetime {
+    background: url('data:image/gif;base64,R0lGODlhDAAMANUnADROhNDk9bfW7tHl9bfX76HK6Nrq+KvQ60JdldDl9cTd8i1HesXe8R84adDk9iU/ckdjnKvP60dimyxHe6zP6xkzYx44abfX7hgzYxkyYiU+ctHk9TtWjTtWjMTe8rjW7sXd8hkyYxUuXtvq+EtnoOLu+v///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAACcALAAAAAAMAAwAAAZawBNpSCyeJKakUlmCIEylqFSK6JgMI+xoOypxAKbEYBMYBByJEmBhUnhAjPe7NNGYBITPRfDJlx4NB1IUEYJRFichiiEYBQUhFRknk5QnIiUilZqWmZuVnSdBADs=') no-repeat left center;
+    padding-left: 15px;
+    font-size: .785em;
+    color: #333;
+    float: right;
+}
+
+.reviews-form-left {
+    width: 60%;
+    position: relative;
+    min-height: 1px;
+    float: left;
+    padding-right: 25px;
+}
+
+.reviews-form-right {
+    width: 40%;
+    position: relative;
+    float: left;
+}
+
+#reviews-form-validate {
+    padding: 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: #f5f5ea;
+    margin: 0;
+}
+
+.page-reviews-list .review {
+    margin: 0 0 1.5em;
+    .review-text-container {
+        position: relative;
+        background: -moz-linear-gradient(center top, #fff 5%, #fefefe 100%);
+        background: -ms-linear-gradient(top, #fff 5%, #fefefe 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#fefefe');
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #fff), color-stop(100%, #fefefe));
+        background-color: #fefefe;
+        color: #000;
+        text-shadow: 1px 1px 0 #fff;
+        border: 1px solid #bbbeb6;
+        padding: 5px 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            z-index: 2;
+            top: 100%;
+            left: 15px;
+            width: 0;
+            height: 0;
+            margin-top: -1px;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid #fff;
+        }
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            z-index: 1;
+            top: 100%;
+            left: 15px;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid #bbbeb6;
+        }
+    }
+    &.even .review-text-container {
+        &:before, &:after {
+            right: 15px;
+            left: auto;
+        }
+    }
+    .review-text {
+        padding: 5px 5px 0;
+        text-align: left;
+    }
+    .review-author-container {
+        margin: 20px 0;
+    }
+    &.even .review-author-container {
+        float: right;
+    }
+    .review-author-image {
+        float: left;
+        margin: 0 15px 0 7px;
+        img {
+            display: block;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+            border: 2px solid #a5c532;
+        }
+    }
+    .review-author-creds {
+        margin: 5px;
+        text-align: left;
+        &.floated {
+            margin-left: 75px;
+        }
+    }
+    .review-author {
+        font-style: italic;
+        font-weight: bold;
+    }
+    .review-image {
+        font-size: .875em;
+    }
+}
 .button-container-inline {
     text-shadow: 1px 1px 1px #fff;
     white-space: nowrap;
@@ -697,22 +824,6 @@ ul.top-menu {
     left: 50%;
     margin-left: -160px;
     padding: 8px 15px 15px;
-}
-
-form {
-    .loader 
-    display: none;
-    z-index: 100;
-    background: #fff url('../img/form-ajax-loader.gif') no-repeat center center;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    border-radius: 15px;
-    p.message {
-        display: none;
-    }
 }
 
 #top-callback-form form {

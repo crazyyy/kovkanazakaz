@@ -1,3 +1,11 @@
+/*window.contentHeight = 0;
+function Resize() {
+	currentWindowHeight = $(document).height();                                
+	if (contentHeight < currentWindowHeight - 160) {
+		$('.page-container').css('min-height', (currentWindowHeight - 160) + "px");
+	}                               
+}
+*/
 $(function(){
 	if(!( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
         try{
@@ -10,7 +18,25 @@ $(function(){
             //
         }
 	}
+	
+	/*window.contentHeight = $('.page-container').height();
+	Resize();
+	$($(window), $(document.body), $(document)).on('drop resize', function () {
+		Resize();
+	});*/
 });
+
+function jivo_onLoadCallback() {
+    if (jivo_config.chat_mode == "online") {
+        $('#online-chat').css('visibility', 'visible');
+        $('#online-chat button').click(function(){
+            jivo_api.open();
+            return false;
+        });
+    } else {
+        $('#online-chat').css('visibility', 'hidden');
+    }
+}
 
 var showFavCount;
 var mobileScrollTimer = null;
@@ -37,6 +63,12 @@ $(function(){
         });
     }
 
+    /*$('img.lazy').lazy({
+        enableThrottle: true,
+        throttle: 250,
+        visibleOnly: false
+    });*/
+
     //перепроверка недозагруженных изображений
     $("img")
         .load(function(){})
@@ -55,11 +87,11 @@ $(function(){
         }
 
         if (count){
-            $('#floated .favorites a, .page-container .favorites a').addClass('count');
-            $('#floated .favorites a .before, .page-container .favorites a .before').html(count);
+            $('#floated a.favorites, .page-container a.favorites').addClass('count');
+            $('#floated a.favorites .before, .page-container a.favorites .before').html(count);
         } else {
-            $('#floated .favorites a, .page-container .favorites a').removeClass('count');
-            $('#floated .favorites a .before, .page-container .favorites a .before').html('');
+            $('#floated a.favorites, .page-container a.favorites').removeClass('count');
+            $('#floated a.favorites .before, .page-container a.favorites .before').html('');
         }
     };
 
@@ -74,43 +106,24 @@ $(function(){
         var object;
         var $self = $(this);
 
-var people = [
-   { 'name' : 'Abel', 'age' : 1 },
-   { 'name' : 'Bella', 'age' : 2 },
-   { 'name' : 'Chad', 'age' : 3 },
-];
-
-$.cookie("people", JSON.stringify(people));
-// later on...
-var people = $.parseJSON($.cookie("people"));
-people.push(
-    { 'name' : 'Daniel', 'age' : 4 }
-);
-$.cookie("people", JSON.stringify(people));
-
-alert(people);
-
         if (!$(this).hasClass('active')){ //пункт еще не выбран, играем анимацию
 
             var nearestImage = $(this).closest('li');
 
-            console.log($self);
-
             if ( $('#floated').is(":visible") ){ //виден плавающий блок
-                nearestImage.effect( 
-                    "transfer", { 
-                        to: $( "#floated .favorites a").closest('li'), className: "transferEffect" 
-                    }, 650, function(){
-                        object = $( "#floated .favorites a");
-                    });
+                nearestImage.effect( "transfer", { to: $( "#floated a.favorites").closest('li'), className: "transferEffect" }, 650, function(){
+                    object = $( "#floated a.favorites");
+                });
             } else {
-                nearestImage.effect( "transfer", { to: $( ".page-container .favorites a").closest('li'), className: "transferEffect" }, 650, function(){
-                    object = $( ".page-container .favorites a" );
+                nearestImage.effect( "transfer", { to: $( ".page-container a.favorites").closest('li'), className: "transferEffect" }, 650, function(){
+                    object = $( ".page-container a.favorites" );
                 });
             }
 
             try{
-                //
+                //пытаемся записать событие в метрику
+                yaCounter22150097.reachGoal('FAVORITED_WORK');
+                ga('send', 'event', 'work', 'add', 'favorite');
             } catch(e){
                 //
             }
@@ -119,13 +132,11 @@ alert(people);
         $.ajax({
             url: "./",
             type: "POST",
-            data: { 
-                id : item_id, 
-                favorite: true },
+            data: { id : item_id, favorite: true },
             dataType: "json"
-            }).success(function(data){
-                $self.toggleClass('active');
-                showFavCount( object, data.items_count )
+        }).success(function(data){
+            $self.toggleClass('active');
+            showFavCount( object, data.items_count )
         });
 
         return false;
@@ -162,7 +173,101 @@ alert(people);
         }
     );
 
-    
+    if ($('#offers-form-container')){
+
+        $.validator.setDefaults({
+            errorElement: "span",
+            errorClass: "help-block",
+            errorPlacement: function (error, element) {
+                if (element.parent('.form-group').length || element.prop('type') === 'checkbox' || element.prop('type') === 'radio') {
+                    error.insertAfter(element);
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+        });
+
+        var $subscribeForm = $('#offers-form-container form');
+        var subscribePhone = $('#subscribePhone');
+        var subscribeEmail = $('#subscribeEmail');
+
+        subscribePhone.mask('\+7 (999) 999-99-99', {clearEmpty: false});
+
+        $subscribeForm.validate({
+            focusInvalid: true,
+            errorClass: "help-block",
+            rules: {
+                Name: {
+                    required: true,
+                    minlength: 3
+                },
+                email: {
+                    require_from_group: [1, '.oneRequired'],
+                    email: true
+                },
+                phone: {
+                    require_from_group: [1, '.oneRequired'],
+                    phoneRu: true
+                }
+            },
+            messages: {
+                Name: {
+                    required: "Пожалуйста, представьтесь",
+                    minlength: "Введите имя полностью"
+                },
+                email: {
+                    require_from_group: "Введите электронную почту или телефон",
+                    email: "Это некорректный адрес почты"
+                },
+                phone: {
+                    require_from_group: "Введите электронную почту или телефон",
+                    phoneRu: "Введите телефон в&nbsp;формате +7&nbsp;(XXX)&nbsp;XXX-XX-XX"
+                }
+            },
+            onfocusout: function (element) {
+                $(element).valid();
+            },
+            onkeyup: function (element) {
+                $(element).valid();
+            },
+            success: function(element) {
+                $(element)
+                    .closest('.form-group').removeClass('has-error').addClass('has-success');
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).closest('.form-group').removeClass('has-error');
+            },
+            submitHandler: function(form) {
+
+                //register metrics
+                try{
+                    //catch form contacts
+                    yaCounter22150097.reachGoal('SUBSCRIBE_FORM');
+                    ga('send', 'event', 'form', 'send', 'subscribe-form');
+                } catch(e){
+                    //
+                }
+
+                $subscribeForm.find('.loader').show();
+
+                $(form).unbind().submit();
+            }
+        });
+
+        $subscribeForm.on('change keyup focusout blur', function() {
+            if($(this).validate().checkForm()) {
+                $subscribeForm.find('input[type=submit]').eq(0).parent().removeClass('button-container-disabled');
+                $subscribeForm.find('input[type=submit]').eq(0).removeClass('btn-disabled').attr('disabled', false);
+            } else {
+                $subscribeForm.find('input[type=submit]').eq(0).parent().addClass('button-container-disabled');
+                $subscribeForm.find('input[type=submit]').eq(0).addClass('btn-disabled').attr('disabled', true);
+            }
+        });
+    }
+
     if ($("a[href='#top-callback-form']").length != 0 && $('#top-callback-form').length != 0){
         var link = $("a[href='#top-callback-form']");
         var form = $('#top-callback-form');
