@@ -46,7 +46,7 @@ $(function(){
             setTimeout(function(){
                 var imgSrc = $img.attr('src'); $img.attr('src',imgSrc);
             }, 100);
-        });
+    });
 
     showFavCount = function( object, count ){
 
@@ -74,27 +74,15 @@ $(function(){
         var object;
         var $self = $(this);
 
-var people = [
-   { 'name' : 'Abel', 'age' : 1 },
-   { 'name' : 'Bella', 'age' : 2 },
-   { 'name' : 'Chad', 'age' : 3 },
-];
-
-$.cookie("people", JSON.stringify(people));
-// later on...
-var people = $.parseJSON($.cookie("people"));
-people.push(
-    { 'name' : 'Daniel', 'age' : 4 }
-);
-$.cookie("people", JSON.stringify(people));
-
-alert(people);
 
         if (!$(this).hasClass('active')){ //пункт еще не выбран, играем анимацию
 
             var nearestImage = $(this).closest('li');
 
+            console.log(item_id);
+            console.log(object);
             console.log($self);
+            console.log(nearestImage);
 
             if ( $('#floated').is(":visible") ){ //виден плавающий блок
                 nearestImage.effect( 
@@ -110,22 +98,24 @@ alert(people);
             }
 
             try{
-                //
+                yaCounter22150097.reachGoal('FAVORITED_WORK');
+                ga('send', 'event', 'work', 'add', 'favorite');
             } catch(e){
                 //
             }
         }
 
+
+        console.log('AJAXED');
+
         $.ajax({
             url: "./",
             type: "POST",
-            data: { 
-                id : item_id, 
-                favorite: true },
+            data: { id : item_id, favorite: true },
             dataType: "json"
-            }).success(function(data){
-                $self.toggleClass('active');
-                showFavCount( object, data.items_count )
+        }).success(function(data){
+            $self.toggleClass('active');
+            showFavCount( object, data.items_count )
         });
 
         return false;
