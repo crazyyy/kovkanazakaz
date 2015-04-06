@@ -96,13 +96,15 @@
 <div class="position-1">
     <div class="review">
         <div class="review-text-container">
-            <div class="review-text"><time class="review-datetime" datetime="2014-10-10">10.10.14</time>Спасибо большое этой компании за&nbsp;кованный забор на&nbsp;даче. Мы&nbsp;с&nbsp;мужем долго не&nbsp;могли определиться,что именно мы&nbsp;хотим. Ребята нам&nbsp;предложили массу вариантов,из которых мы&nbsp;потом и&nbsp;выбрали. Сделали очень быстро. Сразу видно,что за&nbsp;дело мастера взялись. Доставили не&nbsp;только быстро, но&nbsp;и&nbsp;аккуратно. Ничего не&nbsp;ободралось. Установили,можно сказать, моментально. Да&nbsp;при&nbsp;этом цена за&nbsp;все&nbsp;получилось сравнительно низкая. Так&nbsp;что&nbsp;мы&nbsp;не&nbsp;только красивый забор получили,но еще&nbsp;и&nbsp;семейный бюджет сэкономили.
+            <div class="review-text"><time class="review-datetime" datetime="2014-10-10"><?php echo date('d/m/Y', $time); ?></time><?php echo $content; ?>
             </div>
         </div>
-    <div class="review-author-container clearfix"><div class="review-author-image"><img src="/upload/kovka-na-zakaz/information_system_20/1/2/8/item_1284/small_information_items_property_87.png" data-at2x="/upload/kovka-na-zakaz/information_system_20/1/2/8/item_1284/information_items_property_87.png" width="50" height="50" alt="" title=""></div>
-    <div class="review-author-creds floated">
-        <div class="review-author">Дарья</div>
-    </div>
+        <div class="review-author-container clearfix">
+            <div class="review-author-image"><img src="<?php echo $foto; ?>" width="50" height="50" alt="" title="">
+            </div>
+            <div class="review-author-creds floated">
+                <div class="review-author"><?php echo $name; ?></div>
+            </div>
         </div>
     </div>
 </div>
