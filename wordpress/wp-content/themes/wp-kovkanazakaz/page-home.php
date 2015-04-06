@@ -28,39 +28,52 @@
         </div>
         <?php the_field('content1'); ?>
 
-        <!-- 111111111111111 -->
-       
-
-
-
 <ul class="list-inline separateWorksList mainPageList">
 
+    <?php
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    $temp = $wp_query;
+    $wp_query= null;
+    query_posts('post_type=products_ready'.'&showposts=100'.'&paged='.$paged);
+    while (have_posts()) : the_post();
+    ?>
+        <li>
+            <?php
+                $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' );
+                $url = $thumb['0'];
+            ?>
+       
+            <div class="work-image-container">
+                <a href="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );; ?>" 
+                    class="work-image-container work-image thezoom lazy the-zoom-img the-zoom-zoom_in"rel="lightbox" 
+                    title="<?php the_title(); ?>">
+                    <img class="work-image"
+                     data-id="1310" 
+                     thezoom-bigsrc="<?php echo $url  ?>"
+                     src="<?php echo $url  ?>"
+                     data-no-retina="true" width="192" height="128" 
+                     alt="<?php the_title(); ?>" 
+                     title="<?php the_title(); ?>" 
+                    />
+                </a>
+            </div>
+            <p class="text-center">
+                <a 
+                    href="#favourite_<?php the_ID(); ?>" 
+                    title="Отметить работу" 
+                    data-id="<?php the_ID(); ?>" 
+                >
+                    Артикул <?php the_ID(); ?>
+                </a>
+            </p>
+        </li>
 
 
-
-<li><div class="work-image-container">
-<a href="/works/railings/#item-1310" 
-title="Кованые перила">
-<img class="work-image"
- data-id="1310" 
- thezoom-bigsrc="/upload/kovka-na-zakaz/information_system_19/1/3/1/item_1310/information_items_1310.jpg" 
- src="/upload/kovka-na-zakaz/information_system_19/1/3/1/item_1310/small_information_items_1310.jpg" 
- data-no-retina="true" width="192" height="128" 
- alt="Кованые перила" title="Кованые перила">
- </a></div>
- <p class="text-center">
- <a href="/works/railings/#item-1310" 
- title="Кованые перила">Кованые перила</a></p></li>
-
-
-
-
+    <?php endwhile; ?>
+    <?php wp_reset_query(); ?>
 </ul>
 
-
-        <?php the_field('content2'); ?>
-
-
+<?php the_field('content2'); ?>
    
 <div class="main-page-reviews-list clearfix">
     
