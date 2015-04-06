@@ -64,7 +64,7 @@
                                         </div>
                                     </li>
                                     <li class="mail-link">
-                                        <a href="http://kovkanazakaz.com/contacts/feedback/index.html" title="Написать нам письмо">Написать нам письмо</a>
+                                        <a href="<?php echo home_url(); ?>/napisat-nam-pismo.htm" title="Написать нам письмо">Написать нам письмо</a>
                                     </li>
                                 </ul>
                             </div>
