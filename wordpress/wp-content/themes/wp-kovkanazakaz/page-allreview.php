@@ -9,14 +9,18 @@
     </div>
     <!-- breadcrumbs -->
 
+    <div class="content-container">
+        <p>Наши клиенты хорошо отзываются о проделанной работе. Мы будем рады увидеть и ваш отзыв на этой странице, если вы уже являетесь нашим клиентом и заказывали у нас художественную ковку, монтаж или покраску кованых изделий. Если вы только планируете впервые стать нашим клиентом, ознакомьтесь, пожалуйста, с размещенными на этой странице отзывами.</p>
+        <p>Все рецензии публикуются администратором ресурса после проверки на спам, в текстах отзывов сохранена авторская орфография и пунктуация.</p>       
+    </div>
+    <!-- /.content-container -->
+    
+    <div class="reviw-and-from clearfix">
 
-
-
-    <p>Наши клиенты хорошо отзываются о проделанной работе. Мы будем рады увидеть и ваш отзыв на этой странице, если вы уже являетесь нашим клиентом и заказывали у нас художественную ковку, монтаж или покраску кованых изделий. Если вы только планируете впервые стать нашим клиентом, ознакомьтесь, пожалуйста, с размещенными на этой странице отзывами.</p>
-    <p>Все рецензии публикуются администратором ресурса после проверки на спам, в текстах отзывов сохранена авторская орфография и пунктуация.</p>
-    <div class="clearfix">
         <div class="reviews-form-left">
             <div class="page-reviews-list clearfix">
+
+
                 <div class="review odd clearfix">
                     <div class="review-text-container">
                         <div class="review-text">
@@ -29,7 +33,9 @@
                             <div class="review-author">Дарья</div>
                         </div>
                     </div>
-                </div>
+                </div><!-- review odd clearfix -->
+
+
                 <div class="review even clearfix">
                     <div class="review-text-container">
                         <div class="review-text">
@@ -40,7 +46,10 @@
                             <div class="review-author">Ольга</div>
                         </div>
                     </div>
-                </div>
+                </div><!-- review even clearfix -->
+
+
+
                 <div class="review odd clearfix">
                     <div class="review-text-container">
                         <div class="review-text">
@@ -216,8 +225,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+
+
+
+            </div><!-- page-reviews-list clearfix -->
+        </div><!-- reviews-form-left -->
 
 
         <div class="reviews-form-right">
@@ -253,9 +265,9 @@
                 <div class="dz-default dz-message"><span>Drop files here to upload</span>
                 </div>
             </form>
-        </div>
+        </div><!-- reviews-form-right -->
 
-    </div>
+    </div><!-- reviw-and-from clearfix -->
 
 
 
