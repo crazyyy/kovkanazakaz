@@ -10,6 +10,7 @@ $(function(){
             //
         }
 	}
+	
 });
 
 var showFavCount;
@@ -46,7 +47,7 @@ $(function(){
             setTimeout(function(){
                 var imgSrc = $img.attr('src'); $img.attr('src',imgSrc);
             }, 100);
-    });
+        });
 
     showFavCount = function( object, count ){
 
@@ -74,23 +75,14 @@ $(function(){
         var object;
         var $self = $(this);
 
-
         if (!$(this).hasClass('active')){ //пункт еще не выбран, играем анимацию
 
             var nearestImage = $(this).closest('li');
 
-            console.log(item_id);
-            console.log(object);
-            console.log($self);
-            console.log(nearestImage);
-
             if ( $('#floated').is(":visible") ){ //виден плавающий блок
-                nearestImage.effect( 
-                    "transfer", { 
-                        to: $( "#floated .favorites a").closest('li'), className: "transferEffect" 
-                    }, 650, function(){
-                        object = $( "#floated .favorites a");
-                    });
+                nearestImage.effect( "transfer", { to: $( "#floated .favorites a").closest('li'), className: "transferEffect" }, 650, function(){
+                    object = $( "#floated .favorites a");
+                });
             } else {
                 nearestImage.effect( "transfer", { to: $( ".page-container .favorites a").closest('li'), className: "transferEffect" }, 650, function(){
                     object = $( ".page-container .favorites a" );
@@ -98,16 +90,19 @@ $(function(){
             }
 
             try{
-                yaCounter22150097.reachGoal('FAVORITED_WORK');
-                ga('send', 'event', 'work', 'add', 'favorite');
+                //пытаемся записать событие в метрику
             } catch(e){
                 //
             }
         }
+        
+        // var favor_block = ('id : '+item_id+', favorite: true');
+        // console.log('------');
+        // console.log(favor_block);
+        // $.cookie('favorite_works', favor_block);
 
-
-        console.log('AJAXED');
-
+        console.log('id : '+item_id+', favorite: true');
+        
         $.ajax({
             url: "./",
             type: "POST",
@@ -152,7 +147,101 @@ $(function(){
         }
     );
 
-    
+    if ($('#offers-form-container')){
+
+        $.validator.setDefaults({
+            errorElement: "span",
+            errorClass: "help-block",
+            errorPlacement: function (error, element) {
+                if (element.parent('.form-group').length || element.prop('type') === 'checkbox' || element.prop('type') === 'radio') {
+                    error.insertAfter(element);
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+        });
+
+        var $subscribeForm = $('#offers-form-container form');
+        var subscribePhone = $('#subscribePhone');
+        var subscribeEmail = $('#subscribeEmail');
+
+        subscribePhone.mask('\+7 (999) 999-99-99', {clearEmpty: false});
+
+        $subscribeForm.validate({
+            focusInvalid: true,
+            errorClass: "help-block",
+            rules: {
+                Name: {
+                    required: true,
+                    minlength: 3
+                },
+                email: {
+                    require_from_group: [1, '.oneRequired'],
+                    email: true
+                },
+                phone: {
+                    require_from_group: [1, '.oneRequired'],
+                    phoneRu: true
+                }
+            },
+            messages: {
+                Name: {
+                    required: "Пожалуйста, представьтесь",
+                    minlength: "Введите имя полностью"
+                },
+                email: {
+                    require_from_group: "Введите электронную почту или телефон",
+                    email: "Это некорректный адрес почты"
+                },
+                phone: {
+                    require_from_group: "Введите электронную почту или телефон",
+                    phoneRu: "Введите телефон в&nbsp;формате +7&nbsp;(XXX)&nbsp;XXX-XX-XX"
+                }
+            },
+            onfocusout: function (element) {
+                $(element).valid();
+            },
+            onkeyup: function (element) {
+                $(element).valid();
+            },
+            success: function(element) {
+                $(element)
+                    .closest('.form-group').removeClass('has-error').addClass('has-success');
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).closest('.form-group').removeClass('has-error');
+            },
+            submitHandler: function(form) {
+
+                //register metrics
+                try{
+                    //catch form contacts
+                    yaCounter22150097.reachGoal('SUBSCRIBE_FORM');
+                    ga('send', 'event', 'form', 'send', 'subscribe-form');
+                } catch(e){
+                    //
+                }
+
+                $subscribeForm.find('.loader').show();
+
+                $(form).unbind().submit();
+            }
+        });
+
+        $subscribeForm.on('change keyup focusout blur', function() {
+            if($(this).validate().checkForm()) {
+                $subscribeForm.find('input[type=submit]').eq(0).parent().removeClass('button-container-disabled');
+                $subscribeForm.find('input[type=submit]').eq(0).removeClass('btn-disabled').attr('disabled', false);
+            } else {
+                $subscribeForm.find('input[type=submit]').eq(0).parent().addClass('button-container-disabled');
+                $subscribeForm.find('input[type=submit]').eq(0).addClass('btn-disabled').attr('disabled', true);
+            }
+        });
+    }
+
     if ($("a[href='#top-callback-form']").length != 0 && $('#top-callback-form').length != 0){
         var link = $("a[href='#top-callback-form']");
         var form = $('#top-callback-form');
