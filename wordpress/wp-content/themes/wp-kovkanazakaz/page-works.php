@@ -80,27 +80,5 @@
     </div>
     <!-- /.main-contenta -->
 
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/imagelightbox.js"></script>
-<script>
-$(function(){
-
-    $(function(){
-        // on load of the page: switch to the currently selected item
-        var hash = window.location.hash;
-        var itemLoadId = hash.replace(/\D/g,'');
-        if (('#item-' + itemLoadId) == hash){
-            $('a[data-id='+itemLoadId+']').click();
-        }
-
-        if (('#favourite_' + itemLoadId) == hash){
-            window.location.hash = '';
-            $('a[data-id='+itemLoadId+']').click();
-        }
-    });
-});
-</script>
-
-
 </div><!-- ready-works -->
 <?php get_footer(); ?>
